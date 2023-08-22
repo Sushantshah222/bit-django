@@ -16,17 +16,50 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse , render
 import random
 
 def index(request):
-    random_number = random.randint(0,1000)
-    return HttpResponse(f"Hello world , the random number is {random_number}")
-
+    # random_number = random.randint(0,1000)
+    # return HttpResponse(f"<h1>Hello world , the random number is {random_number} </h1>")
+    context = {
+        'mydata':random.randint(0,11000)
+    }
+    return render(request,'index.html',context)
 def index1(request):
     return HttpResponse("OK")
+
+def home(request):
+    return HttpResponse("<h1>This is homepage</h1>")
+
+def about(request):
+    return HttpResponse("<h1>About Page</h1> <p>We are Mahendra Morang Adarsh Multiple Campus,<br>Biratnagar,Morang</p>")
+
+def profile(request,username):
+    print(username)
+
+
+    profile_data = {
+        'aarav':"Aarav Poudel",
+        'hari22':"Hari Prasad Sharma",
+        'sita':"Sita Mahalaxmi",
+        'allu':"Allu Arjun"
+
+    }
+
+
+    result = profile_data.get(username)
+    if result is not None:
+        return HttpResponse(f"<h1>Profile of @{username}</h1> <p>{result}</p>")
+    else:
+        return HttpResponse(f"<h1>Profile of @{username} doesn't exist</h1> <p>error</p>")
+    # return HttpResponse(f'<h1> This is profile page of {username}</h1> <img src="https://pbs.twimg.com/media/ECfs_66VAAAIKfp?format=jpg&name=900x900" style="height:200px;" >')
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index),
-    path('new/',index1)
+    path('new/',index1),
+    path('home/',home),
+    path('about/',about),
+    path('profile/<str:username>/',profile)
 ]
