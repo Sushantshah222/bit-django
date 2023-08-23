@@ -75,6 +75,6 @@ urlpatterns = [
     path('',index),
     path('new/',index1),
     path('home/',home),
-    path('about/',about),
+    path('about-us/',about,name="about-page"),
     path('profile/<str:username>/',profile)
 ]

@@ -69,7 +69,9 @@
     <div class="card-body">
       <h5 class="card-title">{{person.name}}</h5>
       <p class="card-text">{{person.address}}</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <!-- <a href="/about/" class="btn btn-primary">Go somewhere</a> -->
+      <a href="{% url 'about-page' %}" class="btn btn-primary">Go somewhere</a>
+
     </div>
   </div>
 
