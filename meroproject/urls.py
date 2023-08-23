@@ -20,7 +20,20 @@ from django.shortcuts import HttpResponse , render
 import random
 
 def index(request):
-    mylist= ['RAM','SHYAM','HARI',"GITA"]
+    mylist= [
+        
+        {'name':"Aarav",
+              'address':"Dharan",
+              'profile_url':"https://pbs.twimg.com/profile_images/1099246432727560193/1WfFmMB9_400x400.jpg"
+              },
+
+              {'name':"Sujan",
+               'address':"Biratnagar",
+               'profile_url':""
+               
+               }
+              
+              ]
     context = {
         'mydata':random.randint(0,11000),
         'title':"Aarav Poudel Blog",
