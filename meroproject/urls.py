@@ -20,12 +20,14 @@ from django.shortcuts import HttpResponse , render
 import random
 
 def index(request):
-    # random_number = random.randint(0,1000)
-    # return HttpResponse(f"<h1>Hello world , the random number is {random_number} </h1>")
+    mylist= ['RAM','SHYAM','HARI',"GITA"]
     context = {
-        'mydata':random.randint(0,11000)
+        'mydata':random.randint(0,11000),
+        'title':"Aarav Poudel Blog",
+        'person_list':mylist
     }
     return render(request,'index.html',context)
+
 def index1(request):
     return HttpResponse("OK")
 
