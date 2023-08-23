@@ -50,7 +50,7 @@
 
 <div>
   {% for person in person_list %}
-  <h2>{{person}}</h2>
+  <!-- <h2>{{person}}</h2> -->
   {% endfor %}
 </div>
 
@@ -58,7 +58,14 @@
   {% for person in person_list %}
 
   <div class="card m-5" style="width: 18rem;">
-    <img src="https://placehold.jp/640x480.png" class="card-img-top" alt="...">
+
+    {% if person.profile_url %}
+    <img src="{{person.profile_url}}" class="card-img-top" alt="...">
+
+    {% else %}
+<img src="https://placehold.jp/640x480.png" class="card-img-top" alt="...">
+    
+    {% endif %}
     <div class="card-body">
       <h5 class="card-title">{{person.name}}</h5>
       <p class="card-text">{{person.address}}</p>
