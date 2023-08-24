@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , include
 from django.shortcuts import HttpResponse , render
 import random
 
@@ -72,11 +72,16 @@ def profile(request,username):
         return HttpResponse(f"<h1>Profile of @{username} doesn't exist</h1> <p>error</p>")
     # return HttpResponse(f'<h1> This is profile page of {username}</h1> <img src="https://pbs.twimg.com/media/ECfs_66VAAAIKfp?format=jpg&name=900x900" style="height:200px;" >')
 
+
+
+# from blog.views import new_blog
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',index),
     path('new/',index1),
     path('home/',home),
     path('about-us-page/',about,name="about-page"),
-    path('profile/<str:username>/',profile,name='profile_page')
+    path('profile/<str:username>/',profile,name='profile_page'),
+    path('',include('blog.urls')),
+    # path('blog/',new_blog)
 ]
