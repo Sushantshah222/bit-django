@@ -70,7 +70,7 @@
       <h5 class="card-title">{{person.name}}</h5>
       <p class="card-text">{{person.address}}</p>
       <!-- <a href="/about/" class="btn btn-primary">Go somewhere</a> -->
-      <a href="{% url 'about-page' %}" class="btn btn-primary">Go somewhere</a>
+      <a href="{% url 'profile_page' person.username %}" class="btn btn-primary">Go somewhere</a>
 
     </div>
   </div>

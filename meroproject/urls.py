@@ -24,12 +24,14 @@ def index(request):
         
         {'name':"Aarav",
               'address':"Dharan",
-              'profile_url':"https://pbs.twimg.com/profile_images/1099246432727560193/1WfFmMB9_400x400.jpg"
+              'profile_url':"https://pbs.twimg.com/profile_images/1099246432727560193/1WfFmMB9_400x400.jpg",
+              'username':'aarav'
               },
 
               {'name':"Sujan",
                'address':"Biratnagar",
-               'profile_url':""
+               'profile_url':"",
+               'username':'sujan123'
                
                }
               
@@ -58,7 +60,7 @@ def profile(request,username):
         'aarav':"Aarav Poudel",
         'hari22':"Hari Prasad Sharma",
         'sita':"Sita Mahalaxmi",
-        'allu':"Allu Arjun"
+        'allu':"Allu Arjun",
 
     }
 
@@ -75,6 +77,6 @@ urlpatterns = [
     path('',index),
     path('new/',index1),
     path('home/',home),
-    path('about-us/',about,name="about-page"),
-    path('profile/<str:username>/',profile)
+    path('about-us-page/',about,name="about-page"),
+    path('profile/<str:username>/',profile,name='profile_page')
 ]
