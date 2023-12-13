@@ -13,11 +13,7 @@ This project demonstrates using django by mapping urls and views
 - [Installation](#installation)
 
 
-## Installation (REQUIRED )
-Go to repo folder 
-```bash
-cd bmc_dharan
-```
+pm
 Firstly create new Python virtual environment using
 ```bash
 python -m venv myenv
